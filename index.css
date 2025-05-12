@@ -1,0 +1,95 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: lightgray;
+    position: relative;
+    border-top: 40px solid rgb(220, 190, 17);
+    border-bottom: 40px solid rgb(220, 190, 17);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+#logo{
+    position: absolute;
+    width: 160px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    margin: 8px 15px;
+    z-index: 1;
+    top: 6%;
+}
+#icon{
+    height: 40px;
+    width: 50px;
+    background-color:gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#title{
+    width: 150px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight:bold;
+}
+
+#sidebar{
+    position: relative;
+    height: 88%;
+    width: 15%;
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    position: absolute;
+    margin: 5px;
+}
+#menu-content{
+    position: absolute;
+    top: 9.5%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid lightgray;
+}
+.menu{
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+#content{
+    position: absolute;
+    width: 80%;
+    height: 88%;
+    background-color: white;
+    border-radius: 20px;
+    right: 2%;
+    display: flex;
+    flex-direction: column;
+}
