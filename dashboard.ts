@@ -34,7 +34,7 @@ window.onload = ()=>{
     }
 }
 let count=0;
-function create_table(arr:string[]){
+ function create_table(arr:string[]){
     if(first_row){
         first_row.remove();
     }
