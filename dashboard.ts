@@ -4,6 +4,19 @@ function add(){
     dialog.showModal();
     dialog.setAttribute("style","display:block");
 }
+let stored = localStorage.getItem("data");
+let extract: {string:{task:string[],task_status:boolean}}= stored ? JSON.parse(stored) : {};
+let obj_key = Object.keys(extract);
+let count_row:number=0;
+if(obj_key.length>0){
+    let str = obj_key[obj_key.length-1]
+     let match = str.match(/\d+/);
+     if(match){
+        count_row=parseInt(match[0])+1;
+     }
+}else{
+    count_row = 0;
+}
 function submit_func(){
     let task_name = (document.getElementById("name") as HTMLInputElement).value;
     let start_date = (document.getElementById("start_time") as HTMLInputElement).value;
@@ -14,32 +27,36 @@ function submit_func(){
     }
     
     let stored = localStorage.getItem("data");
-    let extract: string[][] = stored ? JSON.parse(stored) : [];
+    let extract: {string:{task:string[],task_status:boolean}}= stored ? JSON.parse(stored) : {};
     let row =[task_name,start_date,end_date];
-    extract.push(row);
+    let obj_value:{task:string[],task_status:boolean}={
+        task:row,
+        task_status:false,
+    };
+    extract[`row${count_row}`]=obj_value;
     localStorage.setItem("data",JSON.stringify(extract));
-    create_table(row);
+    create_table(row,count_row);
+    count_row++;
     dialog.close();
     dialog.setAttribute("style","display:none");
 }
 window.onload = ()=>{
     let stored = localStorage.getItem("data");
-    let extract:string[][] = stored?JSON.parse(stored):[];
-    count=0;
-    if(extract.length>0){
-        for(let x=0;x<extract.length;x++){
-            create_table(extract[x]);
+    let extract:{string:{task:string[],task_status:boolean}} = stored?JSON.parse(stored):{};
+    let obj_keys = Object.keys(extract);
+    if(obj_keys.length>0){
+        for(let x=0;x<obj_keys.length;x++){
+            create_table(extract[obj_keys[x]]["task"],x);
         }
-        count=0;
     }
 }
-let count=0;
- function create_table(arr:string[]){
+ function create_table(arr:string[],count:number){
     if(first_row){
         first_row.remove();
     }
     let table = document.getElementById("table");
     let tr = document.createElement("tr");
+    tr.setAttribute("id", `row${count}`);
     for(let x=0;x<arr.length;x++){
         let td = document.createElement("td");
         let text = document.createTextNode(arr[x]);
@@ -60,7 +77,6 @@ let count=0;
             </div>`;
     tr.appendChild(td);
     table?.appendChild(tr);
-    count++;
 }
 let pop_up:HTMLElement = document.getElementById("dots_inner")as HTMLElement;
 function dots_click(id:number){

@@ -26,3 +26,8 @@ body{
     display: flex;
     flex-direction: column;
 }
+td{
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+    text-align: center;
+}
