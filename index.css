@@ -93,3 +93,29 @@ body{
     display: flex;
     flex-direction: column;
 }
+#logo_icon{
+    font-size: 20px;
+}
+@media screen and (max-width:1080px){
+    #icon{
+       height: 95%;
+       width: 80px;
+    }
+    #logo{
+        margin:8px;
+        width: 15%;
+        top: 5%;
+    }
+    #logo_title{
+        height: 100%;
+        text-align: center;
+        font-size: 10px;
+    }
+    #logo_icon{
+        font-size: 10px;
+    }
+    .menu{
+        font-size: 12px;
+        word-break: break-all;
+    }
+}

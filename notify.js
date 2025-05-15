@@ -20,7 +20,7 @@ function create_notification(task) {
     }
     var tr = document.createElement("tr");
     var td = document.createElement("td");
-    td.innerHTML = "The task named ".concat(task[0], " is yet start!!");
+    td.innerHTML = "The task named ".concat(task[0], " is yet to start!!");
     tr.append(td);
     table === null || table === void 0 ? void 0 : table.append(tr);
 }

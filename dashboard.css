@@ -119,8 +119,29 @@ td{
     width: 100px;
     height: 50px;
     flex-direction: column;
-    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
     right: 0;
     z-index: 1;
  }
- 
+ #del,#edit{
+   text-align: center;
+ }
+ @media screen and (max-width:400px){
+    *{
+        font-size: 12px;
+    }
+    input{
+        width: 100%;
+    }
+    #submit_btn,#reset_btn{
+        width: 60%;
+    }
+    #td_dots{
+        padding: 2px;
+    }
+    .p-dot{
+        font-size: 40px;
+    }
+ }

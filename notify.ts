@@ -20,7 +20,7 @@ function create_notification(task){
     }
     let tr = document.createElement("tr");
     let td = document.createElement("td");
-    td.innerHTML=`The task named ${task[0]} is yet start!!`;
+    td.innerHTML=`The task named ${task[0]} is yet to start!!`;
     tr.append(td);
     table?.append(tr);
 }
