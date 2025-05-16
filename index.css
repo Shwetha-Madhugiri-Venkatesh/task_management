@@ -110,6 +110,8 @@ body{
         height: 100%;
         text-align: center;
         font-size: 10px;
+        word-break: break-all;
+        margin: 4px;
     }
     #logo_icon{
         font-size: 10px;
@@ -119,3 +121,30 @@ body{
         word-break: break-all;
     }
 }
+/* @media screen and (max-width:2560px) {
+    #logo_title{
+        font-size: 50px;
+    }
+    .menu{
+        height: 100px;
+        font-size: 40px;
+        border-bottom: 5px solid lightgrey;
+    }
+#logo{
+        margin:8px;
+        width: 15%;
+        height: 7.5%;
+        top: 7%;
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
+        border-bottom: 2px solid lightgray;
+    }
+    #icon{
+        width: 100px;
+        height: 100px;
+    }
+    #logo_icon{
+        font-size: 40px;
+    }
+} */

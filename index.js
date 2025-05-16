@@ -19,7 +19,7 @@ function my_dashboard(obj) {
     }
     var iffram = document.createElement("iframe");
     iffram.setAttribute("src", "dashboard.html");
-    iffram.setAttribute("id", "dashboard_iframe");
+    iffram.setAttribute("class", "iframes");
     iffram.setAttribute("width", "100%");
     iffram.setAttribute("height", "100%");
     iffram.setAttribute("style", "border:none");
@@ -38,6 +38,7 @@ function my_task(obj) {
     var iffram = document.createElement("iframe");
     iffram.setAttribute("src", "my_task.html");
     iffram.setAttribute("width", "100%");
+    iffram.setAttribute("class", "iframes");
     iffram.setAttribute("height", "100%");
     iffram.setAttribute("style", "border:none");
     content === null || content === void 0 ? void 0 : content.appendChild(iffram);
@@ -54,6 +55,7 @@ function notify_me(obj) {
     task_menu === null || task_menu === void 0 ? void 0 : task_menu.setAttribute("style", "background-color:white");
     var iffram = document.createElement("iframe");
     iffram.setAttribute("src", "notify.html");
+    iffram.setAttribute("class", "iframes");
     iffram.setAttribute("width", "100%");
     iffram.setAttribute("height", "100%");
     iffram.setAttribute("style", "border:none");

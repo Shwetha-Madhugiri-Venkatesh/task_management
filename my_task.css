@@ -28,7 +28,7 @@ body{
 }
 
 td{
-    border-bottom: 1px solid lightgray;
+    border-bottom: 2px solid lightgray;
     padding: 10px;
     text-align: center;
 }
@@ -80,4 +80,19 @@ li{
     *{
         font-size: 12px;
     }
+    #content{
+        overflow-x:scroll;
+    }
+    #td_dots{
+        padding: 4px;
+    }
  }
+ /* @media screen and (max-width:2560px) {
+    *{
+        font-size: 40px;
+    }
+    .start{
+        width: 150px;
+        height: 80px;
+    }
+ } */
