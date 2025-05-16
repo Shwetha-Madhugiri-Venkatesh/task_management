@@ -44,6 +44,13 @@ function submit_func(){
     }
     let stored = localStorage.getItem("data");
     let extract: {string:{task:string[],task_status:boolean}}= stored ? JSON.parse(stored) : {};
+    let obj_keys=Object.keys(extract);
+    for(let x=0;x<obj_keys.length;x++){
+        if(start_date <= extract[obj_keys[x]]["task"][2] || end_date <= extract[obj_keys[x]]["task"][2]){
+            alert("Task has been already assigned.");
+            return;
+        }
+    }
     let row =[task_name,start_date,end_date];
     let obj_value:{task:string[],task_status:boolean}={
         task:row,
@@ -178,22 +185,17 @@ function edit_submit(num){
     let stored = localStorage.getItem("data");
     let extract: {string:{task:string[],task_status:boolean}}= stored ? JSON.parse(stored) : {};
     let obj_keys = Object.keys(extract);
-    let row =[task_name,start_date,end_date];
-    let prev = extract[obj_keys[num]]["task"];
-    let changed=false;
-    for(let x=0;x<prev.length;x++){
-        if(prev[x]==row[x]){
-            continue;
-        }else{
-            changed=true;
-            prev[x]=row[x];
+    extract[obj_keys[num]]["task"]=[];
+     for(let x=0;x<obj_keys.length;x++){
+        if(start_date <= extract[obj_keys[x]]["task"][2] || end_date <= extract[obj_keys[x]]["task"][2]){
+            alert("Task has been already assigned.");
+            return;
         }
     }
-    extract[obj_keys[num]]["task"]=prev;
+    let row =[task_name,start_date,end_date];
+    extract[obj_keys[num]]["task"]=row;
     localStorage.setItem("data",JSON.stringify(extract));
-    if(changed){
-        location.reload();
-    }
+    location.reload();
     dialog.close();
     dialog.setAttribute("style","display:none");
 }

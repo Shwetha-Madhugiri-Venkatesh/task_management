@@ -46,6 +46,13 @@ function submit_func() {
     }
     var stored = localStorage.getItem("data");
     var extract = stored ? JSON.parse(stored) : {};
+    var obj_keys = Object.keys(extract);
+    for (var x = 0; x < obj_keys.length; x++) {
+        if (start_date <= extract[obj_keys[x]]["task"][2] || end_date <= extract[obj_keys[x]]["task"][2]) {
+            alert("Task has been already assigned.");
+            return;
+        }
+    }
     var row = [task_name, start_date, end_date];
     var obj_value = {
         task: row,
@@ -168,23 +175,17 @@ function edit_submit(num) {
     var stored = localStorage.getItem("data");
     var extract = stored ? JSON.parse(stored) : {};
     var obj_keys = Object.keys(extract);
+    extract[obj_keys[num]]["task"] = [];
+    for (var x = 0; x < obj_keys.length; x++) {
+        if (start_date <= extract[obj_keys[x]]["task"][2] || end_date <= extract[obj_keys[x]]["task"][2]) {
+            alert("Task has been already assigned.");
+            return;
+        }
+    }
     var row = [task_name, start_date, end_date];
-    var prev = extract[obj_keys[num]]["task"];
-    var changed = false;
-    for (var x = 0; x < prev.length; x++) {
-        if (prev[x] == row[x]) {
-            continue;
-        }
-        else {
-            changed = true;
-            prev[x] = row[x];
-        }
-    }
-    extract[obj_keys[num]]["task"] = prev;
+    extract[obj_keys[num]]["task"] = row;
     localStorage.setItem("data", JSON.stringify(extract));
-    if (changed) {
-        location.reload();
-    }
+    location.reload();
     dialog.close();
     dialog.setAttribute("style", "display:none");
 }
