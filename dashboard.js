@@ -94,21 +94,22 @@ function create_table(arr, count) {
     tr.appendChild(td);
     table === null || table === void 0 ? void 0 : table.appendChild(tr);
 }
-var pop_up = document.getElementById("dots_inner");
+var pop_up = document.getElementById("popup");
 function dots_click(id) {
+    pop_up.remove();
+    var div_ele = document.getElementsByClassName("div_ele");
+    div_ele[id].appendChild(pop_up);
+    pop_up.setAttribute("style", "display:flex;");
+    var delete_div = document.getElementById("del");
+    delete_div === null || delete_div === void 0 ? void 0 : delete_div.setAttribute("style", "display:flex;cursor: pointer;");
+    delete_div === null || delete_div === void 0 ? void 0 : delete_div.setAttribute("onclick", "delete_(".concat(id, ")"));
+    var edit_div = document.getElementById("edit");
+    edit_div === null || edit_div === void 0 ? void 0 : edit_div.setAttribute("style", "display:flex;cursor: pointer;");
+    edit_div === null || edit_div === void 0 ? void 0 : edit_div.setAttribute("onclick", "edit_(".concat(id, ")"));
+}
+function remove() {
     if (pop_up.style.display == "flex") {
         pop_up.style.display = "none";
-    }
-    else {
-        var div_ele = document.getElementsByClassName("div_ele");
-        div_ele[id].appendChild(pop_up);
-        pop_up.setAttribute("style", "display:flex;");
-        var delete_div = document.getElementById("del");
-        delete_div === null || delete_div === void 0 ? void 0 : delete_div.setAttribute("style", "display:flex;cursor: pointer;");
-        delete_div === null || delete_div === void 0 ? void 0 : delete_div.setAttribute("onclick", "delete_(".concat(id, ")"));
-        var edit_div = document.getElementById("edit");
-        edit_div === null || edit_div === void 0 ? void 0 : edit_div.setAttribute("style", "display:flex;cursor: pointer;");
-        edit_div === null || edit_div === void 0 ? void 0 : edit_div.setAttribute("onclick", "edit_(".concat(id, ")"));
     }
 }
 function close_dialog() {

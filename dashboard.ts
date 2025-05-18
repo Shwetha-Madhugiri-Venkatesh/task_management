@@ -101,11 +101,9 @@ window.onload = ()=>{
     tr.appendChild(td);
     table?.appendChild(tr);
 }
-let pop_up:HTMLElement = document.getElementById("dots_inner")as HTMLElement;
+let pop_up:HTMLElement = document.getElementById("popup")as HTMLElement;
 function dots_click(id:number){
-    if(pop_up.style.display=="flex"){
-        pop_up.style.display="none";
-    }else{
+    pop_up.remove();
     let div_ele = document.getElementsByClassName("div_ele");
     div_ele[id].appendChild(pop_up);
     pop_up.setAttribute("style","display:flex;");
@@ -115,9 +113,12 @@ function dots_click(id:number){
     let edit_div = document.getElementById("edit");
     edit_div?.setAttribute("style","display:flex;cursor: pointer;");
     edit_div?.setAttribute("onclick",`edit_(${id})`);
+}
+function remove(){
+    if(pop_up.style.display=="flex"){
+        pop_up.style.display="none";
     }
 }
-
 function close_dialog(){
     dialog.close();
    dialog.setAttribute("style","diaplay:none");
