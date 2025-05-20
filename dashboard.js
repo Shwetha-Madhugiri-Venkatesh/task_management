@@ -90,7 +90,7 @@ function create_table(arr, count) {
     }
     var td = document.createElement("td");
     td.setAttribute("id", "td_dots");
-    td.innerHTML = "<div class=\"div_ele\">\n            <div class=\"dots\" id=\"dots".concat(count, "\" onclick=\"dots_click(").concat(count, ")\">\n                <span class=\"p-dot\">.</span>\n                <span class=\"p-dot\">.</span>\n                <span class=\"p-dot\">.</span>\n                 <span class=\"p-dot\"></span>\n                <span class=\"p-dot\"></span>\n                <span class=\"p-dot\"></span>\n            </div>\n            </div>");
+    td.innerHTML = "<div class=\"div_ele\">\n            <div class=\"dots\" id=\"dots".concat(count, "\" onclick=\"dots_click(").concat(count, ")\">\n                <i class=\"fa-solid fa-ellipsis-vertical\"></i>\n            </div>\n            </div>");
     tr.appendChild(td);
     table === null || table === void 0 ? void 0 : table.appendChild(tr);
 }

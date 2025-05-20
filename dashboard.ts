@@ -90,12 +90,7 @@ window.onload = ()=>{
     td.setAttribute("id","td_dots");
     td.innerHTML=`<div class="div_ele">
             <div class="dots" id="dots${count}" onclick="dots_click(${count})">
-                <span class="p-dot">.</span>
-                <span class="p-dot">.</span>
-                <span class="p-dot">.</span>
-                 <span class="p-dot"></span>
-                <span class="p-dot"></span>
-                <span class="p-dot"></span>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
             </div>
             </div>`;
     tr.appendChild(td);
